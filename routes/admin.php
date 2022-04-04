@@ -52,30 +52,6 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth:admin' , 'languages
     ######################### End  Main Categoris Routes  ########################
 
 
-    ######################### Begin Sub Categoris Routes ########################
-    Route::group(['prefix' => 'sub_categories'], function () {
-        Route::get('/','SubCategoriesController@index') -> name('admin.subcategories');
-        Route::get('create','SubCategoriesController@create') -> name('admin.subcategories.create');
-        Route::post('store','SubCategoriesController@store') -> name('admin.subcategories.store');
-        Route::get('edit/{id}','SubCategoriesController@edit') -> name('admin.subcategories.edit');
-        Route::post('update/{id}','SubCategoriesController@update') -> name('admin.subcategories.update');
-        Route::get('delete/{id}','SubCategoriesController@destroy') -> name('admin.subcategories.delete');
-        Route::get('changeStatus/{id}','SubCategoriesController@changeStatus') -> name('admin.subcategories.status');
-
-    });
-    ######################### End  Sub Categoris Routes  ########################
-
-
-    ######################### Begin vendors Routes ########################
-    Route::group(['prefix' => 'vendors'], function () {
-        Route::get('/','VendorsController@index') -> name('admin.vendors');
-        Route::get('create','VendorsController@create') -> name('admin.vendors.create');
-        Route::post('store','VendorsController@store') -> name('admin.vendors.store');
-        Route::get('edit/{id}','VendorsController@edit') -> name('admin.vendors.edit');
-        Route::post('update/{id}','VendorsController@update') -> name('admin.vendors.update');
-        Route::get('delete/{id}','VendorsController@destroy') -> name('admin.vendors.delete');
-    });
-    ######################### End  vendors Routes  ########################
 
 
 
@@ -88,20 +64,4 @@ Route::group(['namespace' => 'Admin' , 'middleware' => 'guest:admin'], function 
 });
 
 
- ########################### test part routes #####################
 
-Route::get('subcateory',function (){
-
-      $mainCategory = \App\Models\MainCategory::find(31);
-
-   return       $mainCategory -> subCategories;
-});
-
-Route::get('maincategory',function (){
-
-    $subcategory = \App\Models\SubCategory::find(1);
-
-    return $subcategory -> mainCategory;
-
-
-});
