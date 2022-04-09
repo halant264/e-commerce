@@ -128,7 +128,6 @@
                                                 </div>
                                             </div>
 
-
                                             <div class="form-actions">
                                                 <button type="button" class="btn btn-warning mr-1"
                                                         onclick="history.back();">
@@ -139,7 +138,7 @@
                                                 </button>
                                             </div>
                                         </form>
-
+                                        
                                         <ul class="nav nav-tabs">
                                             @isset($mainCategory -> categories)
                                                 @foreach($mainCategory -> categories   as $index =>  $translation)
@@ -239,6 +238,7 @@
                                                     </div>
                                                 </form>
                                             </div>
+
 
                                                 @endforeach
                                             @endisset

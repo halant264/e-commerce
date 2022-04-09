@@ -96,11 +96,10 @@ class MainCategoriesController extends Controller
     public function edit($mainCat_id)
     {
         //get specific categories and its translations
-        $mainCategory = MainCategory::
-        // with('categories')
-            selection()
+        $mainCategory = MainCategory::with('categories')
+            ->selection()
             ->find($mainCat_id);
-
+// dd($mainCategory);
         if (!$mainCategory)
             return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
 

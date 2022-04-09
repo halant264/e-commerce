@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LanguagesController;
 use App\Http\Controllers\Admin\MainCategoriesController;
+use App\Http\Controllers\Admin\VendorsController;
+// use App\Http\Controllers\Admin\VendorsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,10 @@ use App\Http\Controllers\Admin\MainCategoriesController;
 
 define('PAGINATION_COUNT',10);
 // Auth::routes();
+
+Route::resource('vendor', 'VendorsController');  
+
+
 
 Route::group(['namespace' => 'Admin', 'middleware' => ['auth:admin' , 'languages']], function () {
     Route::get('/', [DashboardController::class , 'index'])->name('admin.dashboard');
@@ -50,6 +56,10 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth:admin' , 'languages
 
     });
     ######################### End  Main Categoris Routes  ########################
+
+    ######################### Begin vendors Routes ########################
+
+    ######################### End  vendors Routes  ########################
 
 
 

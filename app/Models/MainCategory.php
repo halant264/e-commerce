@@ -37,7 +37,6 @@ class MainCategory extends Model
     public function getPhotoAttribute($val)
     {
         return ($val !== null) ? asset('assets/' . $val) : "";
-
     }
 
     public function getActive()
@@ -52,10 +51,10 @@ class MainCategory extends Model
 
 
       // get all translation categories
-    // public function categories()
-    // {
-    //     return $this->hasMany(self::class, 'translation_of');
-    // }
+    public function categories()
+    {
+        return $this->hasMany(self::class, 'translation_of');
+    }
 
 
     // public  function subCategories(){
