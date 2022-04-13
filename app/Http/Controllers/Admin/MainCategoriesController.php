@@ -99,16 +99,13 @@ class MainCategoriesController extends Controller
         $mainCategory = MainCategory::with('categories')
             ->selection()
             ->find($mainCat_id);
-// dd($mainCategory);
-        if (!$mainCategory)
+            if (!$mainCategory)
             return redirect()->route('admin.maincategories')->with(['error' => 'هذا القسم غير موجود ']);
 
         return view('admin.maincategories.edit', compact('mainCategory'));
     }
     public function update($mainCat_id, MainCategoryRequest $request)
     {
-        
-
         try {
             $main_category = MainCategory::find($mainCat_id);
 

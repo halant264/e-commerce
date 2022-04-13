@@ -141,6 +141,7 @@
                                         
                                         <ul class="nav nav-tabs">
                                             @isset($mainCategory -> categories)
+                                            
                                                 @foreach($mainCategory -> categories   as $index =>  $translation)
                                                     <li class="nav-item">
                                                         <a class="nav-link @if($index ==  0) active @endif  " id="homeLable-tab"  data-toggle="tab"

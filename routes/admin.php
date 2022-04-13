@@ -23,7 +23,6 @@ use App\Http\Controllers\Admin\VendorsController;
 define('PAGINATION_COUNT',10);
 // Auth::routes();
 
-Route::resource('vendor', 'VendorsController');  
 
 
 
@@ -58,7 +57,16 @@ Route::group(['namespace' => 'Admin', 'middleware' => ['auth:admin' , 'languages
     ######################### End  Main Categoris Routes  ########################
 
     ######################### Begin vendors Routes ########################
+    Route::group(['prefix' => 'vendors'], function () {
+        Route::get('/',[vendorsController::class , 'index']) -> name('admin.vendors');
+        Route::get('create',[vendorsController::class , 'create']) -> name('admin.vendors.create');
+        Route::post('store',[vendorsController::class , 'store']) -> name('admin.vendors.store');
+        Route::get('edit/{id}',[vendorsController::class , 'edit']) -> name('admin.vendors.edit');
+        Route::post('update/{id}',[vendorsController::class , 'update']) -> name('admin.vendors.update');
+        Route::get('delete/{id}',[vendorsController::class , 'destroy']) -> name('admin.vendors.delete');
+        Route::get('changeStatus/{id}',[vendorsController::class , 'changeStatus']) -> name('admin.vendors.status');
 
+    });
     ######################### End  vendors Routes  ########################
 
 

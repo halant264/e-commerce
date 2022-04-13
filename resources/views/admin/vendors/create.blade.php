@@ -52,7 +52,7 @@
                                             <div class="form-group">
                                                 <label> لوجو التجار </label>
                                                 <label id="projectinput7" class="file center-block">
-                                                    <input type="file" id="file" name="logo">
+                                                    <input type="file" id="file" name="logo" value="{{ old('logo') }}" >
                                                     <span class="file-custom"></span>
                                                 </label>
                                                 @error('logo')
@@ -72,6 +72,7 @@
                                                             <input type="text" value="" id="name"
                                                                    class="form-control"
                                                                    placeholder="  "
+                                                                   value="{{ old('name') }}"
                                                                    name="name">
                                                             @error("name")
                                                             <span class="text-danger">{{$message}}</span>
@@ -106,6 +107,7 @@
                                                             <label for="projectinput1"> رقم الهاتف </label>
                                                             <input type="text" id="mobile"
                                                                    class="form-control"
+                                                                   value="{{ old('mobile') }}"
                                                                    placeholder="  " name="mobile">
 
                                                             @error("mobile")
@@ -418,6 +420,6 @@
         }
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKZAuxH9xTzD2DLY2nKSPKrgRi2_y0ejs&libraries=places&callback=initAutocomplete&language=ar&region=EG
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKZAuxH9xTzD2DLY2nKSPKrgRi2_y0ejs&libraries=places&callback=initAutocomplete&language=ar&region=SY
          async defer"></script>
     @stop
